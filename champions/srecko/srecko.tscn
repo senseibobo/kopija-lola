@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://champions/srecko/srecko.gd" type="Script" id=1]
+[ext_resource path="res://champions/srecko/srecko.png" type="Texture" id=2]
+[ext_resource path="res://champions/srecko/sreckoicon2.png" type="Texture" id=3]
+[ext_resource path="res://champions/srecko/sreckoicon1.png" type="Texture" id=4]
+[ext_resource path="res://champions/srecko/sreckoicon3.png" type="Texture" id=5]
+
+[node name="Srecko" type="Node2D"]
+script = ExtResource( 1 )
+base_movement_speed = 330.0
+base_health = 340.0
+base_armor = 23.0
+base_magic_resist = 28.0
+base_health_regen = 1.0
+base_attack_damage = 45.0
+base_attack_speed = 0.6
+base_attack_range = 350.0
+base_mana = 330.0
+base_mana_regen = 1.0
+health_per_level = 55.0
+health_regen_per_level = 0.06
+mana_per_level = 60.0
+mana_regen_per_level = 0.08
+armor_per_level = 2.0
+magic_resist_per_level = 2.2
+attack_damage_per_level = 4.0
+attack_speed_per_level = 0.03
+cooldowns = [ 0.0, 20.0, 8.0, 200.0 ]
+cooldown_decrease_per_level = [ 0.0, 1.0, 0.0, 15.0 ]
+mana_costs = [ 0.0, 80.0, 50.0, 200.0 ]
+mana_cost_increase_per_level = [ 0.0, 0.0, 10.0, -10.0 ]
+first_ability_texture = ExtResource( 4 )
+second_ability_texture = ExtResource( 3 )
+ultimate_ability_texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

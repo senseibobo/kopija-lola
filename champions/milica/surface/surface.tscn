@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://champions/milica/surface/surface.png" type="Texture" id=2]
+[ext_resource path="res://champions/milica/surface/surface.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float angle : hint_range(0.0,3.14);
+uniform float range : hint_range(0.0,3.0);
+void fragment() {
+	float pixel_angle;
+	pixel_angle = atan(UV.y,UV.x);
+	if(abs(pixel_angle) > angle*3.14/180.0/2.0 || sqrt(UV.x*UV.x + UV.y*UV.y) > range) {
+		COLOR = vec4(0.0);
+	} else {
+		COLOR = texture(TEXTURE,UV);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/angle = 45.0
+shader_param/range = 2.0
+
+[node name="Surface" type="Node2D"]
+z_index = -99
+z_as_relative = false
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -1000, -1000, 2000, 2000 )
+
+[node name="Tween" type="Tween" parent="."]

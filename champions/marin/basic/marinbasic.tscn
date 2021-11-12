@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://champions/marin/basic/marinbasic.gd" type="Script" id=1]
+[ext_resource path="res://fonts/andadapro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="MarinBasic" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+speed = 600.0
+acceleration = 900.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = -20.4265
+margin_top = -20.8139
+margin_right = 19.5735
+margin_bottom = 18.1861
+custom_fonts/font = SubResource( 1 )
+text = "b"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://champions/marin/bodyslam/bodyslamslow.gd" type="Script" id=1]
+
+[node name="BodySlamSlow" type="Node"]
+script = ExtResource( 1 )
+movement_alter_percentage = -0.3

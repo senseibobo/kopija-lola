@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://monsters/tetkica.gd" type="Script" id=1]
+[ext_resource path="res://monsters/tetkica.png" type="Texture" id=2]
+
+[node name="Tetkica" type="Node2D"]
+script = ExtResource( 1 )
+base_movement_speed = 300.0
+base_health = 600.0
+base_armor = 50.0
+base_magic_resist = 50.0
+base_health_regen = 5.0
+base_attack_damage = 40.0
+base_attack_speed = 1.0
+base_attack_range = 80.0
+collision_radius = 40.0
+team = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

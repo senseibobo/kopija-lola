@@ -1,0 +1,12 @@
+extends Item
+
+func _init():
+	id = 1
+	name = "Beleske"
+	cost = 1200
+	texture = preload("res://items/beleske.png")
+	components = [0]
+	attack_damage = 20
+	life_steal = 0.2
+	attack_speed = 0.3
+	health = 200

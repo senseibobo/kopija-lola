@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://champions/kosa/kosa.gd" type="Script" id=1]
+[ext_resource path="res://shaders/outline.gdshader" type="Shader" id=2]
+[ext_resource path="res://champions/kosa/kosa.png" type="Texture" id=3]
+[ext_resource path="res://champions/kosa/kosaicon2.png" type="Texture" id=4]
+[ext_resource path="res://champions/kosa/kosaicon3.png" type="Texture" id=5]
+[ext_resource path="res://champions/kosa/kosaicon1.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/outline_color = Color( 1, 0, 0, 1 )
+shader_param/outline_width = 0.0
+shader_param/rainbow = false
+shader_param/rainbow_speed = 10.0
+
+[node name="Kosa" type="Node2D"]
+script = ExtResource( 1 )
+base_movement_speed = 330.0
+base_health = 420.0
+base_armor = 30.0
+base_magic_resist = 34.0
+base_health_regen = 1.0
+base_attack_damage = 60.0
+base_attack_speed = 0.7
+base_attack_range = 160.0
+base_mana = 250.0
+base_mana_regen = 1.2
+health_per_level = 62.0
+health_regen_per_level = 0.2
+mana_per_level = 45.0
+mana_regen_per_level = 0.35
+armor_per_level = 3.0
+magic_resist_per_level = 5.0
+attack_damage_per_level = 6.0
+attack_speed_per_level = 0.05
+cooldowns = [ 0.0, 15.0, 4.0, 70.0 ]
+cooldown_decrease_per_level = [ 0.0, 0.0, 0.0, 10.0 ]
+mana_costs = [ 0.0, 80.0, 50.0, 0.0 ]
+mana_cost_increase_per_level = [ 0.0, 0.0, 5.0, 0.0 ]
+first_ability_texture = ExtResource( 6 )
+second_ability_texture = ExtResource( 4 )
+ultimate_ability_texture = ExtResource( 5 )
+trouglovi_range = 210.0
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+offset = Vector2( 8, 0 )
+
+[node name="Trouglovi" type="Node2D" parent="."]

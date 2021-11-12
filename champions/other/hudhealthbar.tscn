@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://champions/other/hudhealthbar.gd" type="Script" id=1]
+
+[node name="HUDHealthbar" type="Node2D"]
+z_index = 5
+script = ExtResource( 1 )
+length = 600.0
+height = 30.0
+back_color = Color( 0.396078, 0.396078, 0.396078, 1 )

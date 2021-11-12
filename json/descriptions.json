@@ -1,0 +1,192 @@
+{
+    "marin" : 
+    {
+        "passive" : {
+            "name" : "Odmor",
+            "description" : "Marinu je potreban odmor da bi isao brze.\n\nOdmaranjem od najmanje {min_odmor}s do najvise {max_odmor}s on dobija {odmor_speed_percentage}%% brzine na {odmor_speed_duration}s.",
+            "args" : {
+                "min_odmor" : "min_odmor",
+                "max_odmor" : "max_odmor",
+                "odmor_speed_percentage" : "odmor_speed_percentage",
+                "odmor_speed_duration" : "odmor_speed_duration"
+            }
+        },
+        "first_ability" : 
+        {
+            "name" : "Pokazivac",
+            "description" : "Marin postavlja pokazivac na zemlju bilo gde na mapi.\nPokazivac puca karaktere u najblizeg protivnika, radeci [color=#1e84cc]{char_damage}[/color] magic damage po karakteru.\nPosle 5 ispucaja, pokazivac eksplodira i salje 8 heksadecimalnih karaktera na sve strane.\nAko heksadecimalni karakter udari u protivnika, on mu radi [color=#1e84cc]{hex_damage} [/color]magic damage.",
+            "args" : {
+                "char_damage" : "char_damage",
+                "hex_damage" : "hex_damage"
+            }
+        },
+        "second_ability" : 
+        {
+            "name" : "Body Slam",
+            "description" : "Marin skace ispred sebe.\n\nUkoliko udari u protivnickog nastavnika, radi [color=#980000]{slam_damage}[/color] physical damage i usporava ga {slam_slow_percentage}% na {slam_slow_duration}s.",
+            "args" : {
+                "slam_damage" : "slam_damage",
+                "slam_slow_percentage" : "slam_slow_percentage",
+                "slam_slow_duration" : "slam_slow_duration"
+            }
+        },
+        "ultimate_ability" :
+        {
+            "name" : "Dubok Glas",
+            "description": "Marin vikne glasno.\n\nSvi protivnici oko njega se uspore {glas_slow_percentage}% na {glas_slow_duration}s od straha.\n\nOn regenerise ceo health i manu i ubrza se {glas_speed_percentage}% na {glas_speed_duration}s.",
+            "args" : {
+                "glas_slow_percentage" : "glas_slow_percentage",
+                "glas_slow_duration" : "glas_slow_duration",
+                "glas_speed_percentage" : "glas_speed_percentage",
+                "glas_speed_duration" : "glas_speed_duration"
+            }
+        }
+    },
+    "kosa":
+    {
+        "passive":
+        {
+            "name" : "Ne znam ime",
+            "description" : "Kosa dobija [color=#980000]{passive_ad_per_cs}[/color] attack damage svaki put kada ubije {passive_cs_required} djaka.\n\nKosa radi {attack_boost_percentage}% vise damage kada udara vrhom svog lenjira.",
+            "args" : {
+                "passive_ad_per_cs":"passive_ad_per_cs",
+                "passive_cs_required":"passive_cs_required",
+                "attack_boost_percentage":"attack_boost_percentage"
+            }
+        },
+        "first_ability":
+        {
+            "name" : "Vrisak",
+            "description" : "Kosa vrisne i uplasi sve protivnike oko sebe na {vrisak_fear_duration}s.\n\nAko udari protivnika koji je uplasen, ona ga takodje i rootuje na {vrisak_root_duration}s.",
+            "args" : {
+                "vrisak_fear_duration" : "vrisak_fear_duration",
+                "vrisak_root_duration" : "vrisak_root_duration"
+            } 
+        },
+        "second_ability":
+        {
+            "name" : "Trougao",
+            "description" : "Kosa konstruise trougao koji kruzi oko nje {trougao_time}s i radi [color=#980000]{trougao_damage}[/color] physical damage onima koje udari.\n\nUkoliko Kosa vec ima trouglove kada ga konstruise, njima se zivotni vek resetuje.\n\nMaksimalni broj trouglova je 3, i kada Kosa konstruise 3 trougla, oni idu oko nje brze.",
+            "args" : {
+                "trougao_time" : "trougao_time",
+                "trougao_damage" : "trougao_damage"
+            }
+        },
+        "ultimate_ability":
+        {
+            "name" : "Krug",
+            "description" : "Kosa konstruise krug oko sebe i zatvara sve protivnike koji se nadju oko nje u taj krug na {krug_duration}s.\n\nKada se to desi, Kosa dobije {krug_attack_speed} attack speed, {krug_life_steal}% life steal i odmah zatim konstruise 3 trougla.",
+            "args" : {
+                "krug_duration" : "krug_duration",
+                "krug_attack_speed" : "krug_attack_speed",
+                "krug_life_steal" : "krug_life_steal"
+            }
+        }
+    },
+    "milica":
+    {
+        "passive":
+        {
+            "name" : "Uvreda",
+            "description" : "Protivnicki igraci uvrede Milicu tako sto je udaraju. Ona zbog toga dobija {passive_speed_percentage}% brzine na {passive_speed_duration}s kada je neko udari.",
+            "args" : {
+                "passive_speed_percentage" : "passive_speed_percentage",
+                "passive_speed_duration" : "passive_speed_duration"
+            }
+        },
+        "first_ability":
+        {
+            "name" : "Traveller",
+            "description" : "Milica podseca protivnika da nema knjigu.\n\nPrvi cast: Milica se dashuje brzo i priprema Traveller knjigu.\n\nDrugi cast: Milica baca Traveller knjigu na svog protivnika, radeci {traveller_damage} physical damage ukoliko ga pogodi.",
+            "args" : {
+                "traveller_damage" : "traveller_damage"
+            }
+        },
+        "second_ability":
+        {
+            "name" : "Garlic",
+            "description" : "Milica pojede Garlic, njime ona uklanja sve negativne efekte i dobija {garlic_speed_percentage}% brzine na {garlic_speed_duration}s.",
+            "args":{
+                "garlic_speed_percentage" : "garlic_speed_percentage",
+                "garlic_speed_duration" : "garlic_speed_duration"
+            }
+        },
+        "ultimate_ability":
+        {
+            "name" : "Surface",
+            "description" : "Milica pomaze svom protivniku da izgovori rec surface pravilno.\n\nOna time priziva zemljotres u blizini njenog glasa koji traje {surface_duration}s, radi {surface_dps} physical damage i usporava protivnika {surface_slow_percentage}% svake sekunde",
+            "args":{
+                "surface_duration" : "surface_duration",
+                "surface_dps": "surface_dps",
+                "surface_slow_percentage" : "surface_slow_percentage"
+            }
+        }
+    },
+    "srecko":
+    {
+        "passive":{
+            "name": "Sreckov revolver",
+            "description":"Srecko ima revolver koji puca rec \"SRECKO\" slovo po slovo.\n\nPoslednje slovo te reci vrsi {basic_ap_damage} bonus magic damage.\n\nSrecko je veoma miran covek, i zato ignorise CC efekte koji su naneti njemu i skracuje ih za {passive_cc_percentage}%",
+            "args": {
+                "o_damage" : "o_damage",
+                "passive_cc_percentage" : "passive_cc_percentage"
+            }
+        },
+        "first_ability": {
+            "name" : "Govor",
+            "description" : "Srecko drzi monoton govor svima ispred sebe. Svi protivnici uhvaceni u njegovom govoru uspavani su na {govor_sleep_duration}s.\n\nAko Srecko izvrsi stetu uspavanom protivniku, svi uspavani protivnici se probude, a pogodjeni protivnik prima {govor_damage} magic damage.",
+            "args" : {
+                "govor_sleep_duration" : "govor_sleep_duration",
+                "govor_damage" : "govor_damage" 
+            }
+        },
+        "second_ability": {
+            "name" : "Button Ispaljivac",
+            "description" : "Srecko uzima svoj ispaljivac buttona i gadja u odredjeno mesto.\n\nPri dodiru sa protivnikom, on eksplodira i vrsi {button_damage} magic damage.\n\nUkoliko ne udari u protivnika odmah, button ostaje na zemlji jos {button_duration}s pre nego sto nestane.",
+            "args":{
+                "button_damage" : "button_damage",
+                "button_duration" : "button_duration"
+            }
+        },
+        "ultimate_ability" : {
+            "name" : "Radnik",
+            "description" : "Srecko pritiska svoje dugme \"RADI NESTO\" kojim uz pomoc konstruktora napravi objekat klase Radnik. Radnika kontrolise tako sto pritisne alt i desni klik.\n\nRadnik kopira sve Sreckove napade, ali phyiscal damage je zamenjen magic damagom i obrnuto.\n\nRadnik ostaje u borbi dok ne umre.",
+            "args" : {}
+        }
+    },
+    "vladimir": {
+        "passive": {
+            "name" : "U zdravom telu zdrav duh",
+            "description" : "Vladimir zivi zdravo. Zbog toga, ako ga niko ne udari {passive_shield_delay}s on dobija {passive_shield_amount} shielda.\n\nVladimir je uvek u kondiciji. On moze da se zaleti i tako da dobije do +{passive_speed_bonus_percentage}% brzine za {passive_speed_max_time}.",
+            "args" : {
+                "passive_shield_delay" : "passive_shield_delay",
+                "passive_shield_amount" : "passive_shield_amount",
+                "passive_speed_bonus_percentage" : "passive_speed_bonus_percentage"
+            }
+        },
+        "first_ability" : {
+            "name" : "Fudbal",
+            "description" : "Vladimir sutira loptu u zeljenom pravcu i ona vrsi {fudbal_damage} physical damage prvom nastavniku kojeg pogodi.\n\nUkoliko zadrzi dugme do najvise 2s, on se primeri za sut i lopta leti brze i radi do {fudbal_max_damage} physical damage.",
+            "args" : {
+                "fudbal_damage" : "fudbal_damage",
+                "fudbal_max_damage" : "fudbal_max_damage"
+            }
+        },
+        "second_ability" : {
+            "name" : "Tenis",
+            "description" : "Vladimir uzima reket i udara ispred sebe, radeci {tenis_damage} physical damage svim protivnicima ispred sebe.\n\nUkoliko zadrzi dugme, on ne udari odmah, vec moze da se odbrani do {tenis_return_duration}s od sve protivnicke stete nanete na njega i da vrati {tenis_return_percentage}% te stete kada udari.",
+            "args" : {
+                "tenis_return_percentage" : "tenis_return_percentage",
+                "tenis_return_duration" : "tenis_return_duration"
+            }
+        },
+        "ultimate_ability" : {
+            "name" : "Kosarka",
+            "description" : "Vladimiru nedostaje lopta, a zeli da zakuca u kos. Zbog toga, on uzima nekog nastavnika i umesto lopte, njega zakucava, radeci {kosarka_damage} physical damage.\n\nUkoliko Vladimir porazi nastavnika zakucavanjem, svi protivnici su odusevljeni njegovom tehnikom i zaustave se (stun) na {kosarka_stun_duration}s.",
+            "args" : {
+                "kosarka_damage" : "kosarka_damage",
+                "kosarka_stun_duration" : "kosarka_stun_duration"
+            }
+        }
+    }
+}

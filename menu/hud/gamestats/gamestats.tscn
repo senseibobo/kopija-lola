@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/hud/gamestats/gamestats.gd" type="Script" id=1]
+[ext_resource path="res://menu/maintheme.tres" type="Theme" id=2]
+[ext_resource path="res://menu/hud/statcounter/money.png" type="Texture" id=4]
+[ext_resource path="res://menu/hud/statcounter/statcounter.tscn" type="PackedScene" id=5]
+
+[node name="GameStats" type="Panel"]
+anchor_left = 0.7
+anchor_right = 1.0
+margin_bottom = 22.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyCounter" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 0.0
+
+[node name="StatCounter" parent="." instance=ExtResource( 5 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+stat = "money"
+icon = ExtResource( 4 )
+
+[node name="TextureRect" parent="StatCounter" index="0"]
+margin_bottom = 22.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Label" parent="StatCounter" index="1"]
+anchor_bottom = 1.0
+margin_left = 16.0
+valign = 1
+
+[editable path="StatCounter"]

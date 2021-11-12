@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://menu/shop/ItemShop/itemshop.gd" type="Script" id=1]
+[ext_resource path="res://menu/shop/ItemShop/itempanel.gd" type="Script" id=2]
+[ext_resource path="res://menu/shop/ItemShop/releasefocus.gd" type="Script" id=3]
+[ext_resource path="res://menu/shop/ItemShop/shop_arrow.png" type="Texture" id=4]
+[ext_resource path="res://menu/hud/itemslot/itemdescriptionpanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu/maintheme.tres" type="Theme" id=6]
+[ext_resource path="res://menu/shop/ItemShop/GuidePanel.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="ItemShop" type="Control"]
+anchor_bottom = 1.0
+margin_right = 272.0
+theme = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="n" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_right = -272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="n"]
+anchor_right = 1.0
+anchor_bottom = 0.039
+clear_button_enabled = true
+placeholder_text = "Search items"
+caret_blink = true
+caret_blink_speed = 0.4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemPanel" type="Panel" parent="n"]
+anchor_top = 0.039
+anchor_right = 1.0
+anchor_bottom = 0.484
+rect_clip_content = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VScrollBar" type="VScrollBar" parent="n/ItemPanel"]
+margin_left = 260.0
+margin_right = 272.0
+margin_bottom = 488.0
+
+[node name="Tween" type="Tween" parent="n"]
+
+[node name="ToggleButton" type="Button" parent="n"]
+margin_left = 271.0
+margin_top = 1.0
+margin_right = 292.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 10.5, 10.5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GuidePanel" type="Panel" parent="n"]
+anchor_top = 0.488
+anchor_right = 1.0
+anchor_bottom = 0.713
+rect_clip_content = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionPanel" parent="n" instance=ExtResource( 5 )]
+anchor_top = 0.717
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[connection signal="text_changed" from="n/LineEdit" to="." method="_on_search"]
+[connection signal="value_changed" from="n/ItemPanel/VScrollBar" to="n/ItemPanel" method="_on_VScrollBar_value_changed"]
+[connection signal="pressed" from="n/ToggleButton" to="." method="toggle_shop"]

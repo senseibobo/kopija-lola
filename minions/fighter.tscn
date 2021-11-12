@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://classes/minion.gd" type="Script" id=1]
+[ext_resource path="res://minions/fighter.png" type="Texture" id=2]
+
+[node name="Minion" type="Node2D"]
+script = ExtResource( 1 )
+base_movement_speed = 140.0
+base_health = 400.0
+base_attack_damage = 30.0
+base_attack_speed = 0.3
+base_attack_range = 80.0
+collision_radius = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( -6, -5 )

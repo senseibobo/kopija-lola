@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/start/startmenu.gd" type="Script" id=1]
+[ext_resource path="res://menu/maintheme.tres" type="Theme" id=2]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CCMain" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBMain" type="VBoxContainer" parent="CCMain"]
+margin_left = 316.0
+margin_top = 212.0
+margin_right = 963.0
+margin_bottom = 507.0
+custom_constants/separation = 51
+
+[node name="CRImeIgrice" type="ColorRect" parent="CCMain/VBMain"]
+margin_right = 647.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 500, 100 )
+
+[node name="GCMain" type="HBoxContainer" parent="CCMain/VBMain"]
+margin_top = 151.0
+margin_right = 647.0
+margin_bottom = 295.0
+custom_constants/separation = 263
+alignment = 1
+
+[node name="VBCreateServer" type="VBoxContainer" parent="CCMain/VBMain/GCMain"]
+margin_right = 192.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 150, 0 )
+alignment = 1
+
+[node name="BTCreate" type="Button" parent="CCMain/VBMain/GCMain/VBCreateServer"]
+margin_top = 32.0
+margin_right = 192.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 192, 48 )
+text = "Create Server"
+
+[node name="LECreatePort" type="LineEdit" parent="CCMain/VBMain/GCMain/VBCreateServer"]
+margin_top = 84.0
+margin_right = 192.0
+margin_bottom = 112.0
+text = "7777"
+placeholder_text = "Port"
+
+[node name="VBjoinServer" type="VBoxContainer" parent="CCMain/VBMain/GCMain"]
+margin_left = 455.0
+margin_right = 647.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 150, 0 )
+alignment = 1
+
+[node name="BTJoin" type="Button" parent="CCMain/VBMain/GCMain/VBjoinServer"]
+margin_right = 192.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 192, 48 )
+text = "Join Server"
+
+[node name="LEJoinIP" type="LineEdit" parent="CCMain/VBMain/GCMain/VBjoinServer"]
+margin_top = 52.0
+margin_right = 192.0
+margin_bottom = 80.0
+text = "127.0.0.1"
+placeholder_text = "IP Address"
+
+[node name="LEJoinPort" type="LineEdit" parent="CCMain/VBMain/GCMain/VBjoinServer"]
+margin_top = 84.0
+margin_right = 192.0
+margin_bottom = 112.0
+text = "7777"
+placeholder_text = "Port"
+
+[node name="LEPlayerName" type="LineEdit" parent="CCMain/VBMain/GCMain/VBjoinServer"]
+margin_top = 116.0
+margin_right = 192.0
+margin_bottom = 144.0
+text = "Name"
+placeholder_text = "Nickname"
+
+[connection signal="pressed" from="CCMain/VBMain/GCMain/VBCreateServer/BTCreate" to="." method="_on_BTCreate_pressed"]
+[connection signal="pressed" from="CCMain/VBMain/GCMain/VBjoinServer/BTJoin" to="." method="_on_BTJoin_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://champions/other/championhealthbar.gd" type="Script" id=1]
+
+[node name="ChampionHealthbar" type="Node2D"]
+z_index = 5
+script = ExtResource( 1 )
+length = 120.0
+height = 12.0
+yposition = 75.0
+max_health = 1000.0
+health = 500.0
+health_color = Color( 0.65, 1, 0, 1 )
+back_color = Color( 0, 0, 0, 0.501961 )
+text = "Ime"
+mana = 150.0

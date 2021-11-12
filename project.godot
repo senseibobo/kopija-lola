@@ -1,0 +1,474 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Effect",
+"class": "Bleed",
+"language": "GDScript",
+"path": "res://effects/bleed.gd"
+}, {
+"base": "Polygon2D",
+"class": "Bush",
+"language": "GDScript",
+"path": "res://world/bush.gd"
+}, {
+"base": "Entity",
+"class": "Champion",
+"language": "GDScript",
+"path": "res://classes/champion.gd"
+}, {
+"base": "Healthbar",
+"class": "ChampionHealthbar",
+"language": "GDScript",
+"path": "res://champions/other/championhealthbar.gd"
+}, {
+"base": "Effect",
+"class": "Charm",
+"language": "GDScript",
+"path": "res://effects/charm.gd"
+}, {
+"base": "Effect",
+"class": "Confinement",
+"language": "GDScript",
+"path": "res://effects/confinement.gd"
+}, {
+"base": "Effect",
+"class": "Cripple",
+"language": "GDScript",
+"path": "res://effects/cripple.gd"
+}, {
+"base": "Effect",
+"class": "Curse",
+"language": "GDScript",
+"path": "res://effects/curse.gd"
+}, {
+"base": "Resource",
+"class": "Damage",
+"language": "GDScript",
+"path": "res://classes/damage.gd"
+}, {
+"base": "Reference",
+"class": "Description",
+"language": "GDScript",
+"path": "res://classes/description.gd"
+}, {
+"base": "Panel",
+"class": "DescriptionPanel",
+"language": "GDScript",
+"path": "res://menu/shop/ItemShop/itempanel.gd"
+}, {
+"base": "Effect",
+"class": "Disarm",
+"language": "GDScript",
+"path": "res://effects/disarm.gd"
+}, {
+"base": "Reference",
+"class": "Effect",
+"language": "GDScript",
+"path": "res://classes/effect.gd"
+}, {
+"base": "Node2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://classes/entity.gd"
+}, {
+"base": "Effect",
+"class": "Fear",
+"language": "GDScript",
+"path": "res://effects/fear.gd"
+}, {
+"base": "Effect",
+"class": "Ghosting",
+"language": "GDScript",
+"path": "res://effects/ghosting.gd"
+}, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://menu/hud/hud.gd"
+}, {
+"base": "Healthbar",
+"class": "HUDHealthbar",
+"language": "GDScript",
+"path": "res://champions/other/hudhealthbar.gd"
+}, {
+"base": "Effect",
+"class": "Haste",
+"language": "GDScript",
+"path": "res://effects/haste.gd"
+}, {
+"base": "Node2D",
+"class": "Healthbar",
+"language": "GDScript",
+"path": "res://champions/other/healthbar.gd"
+}, {
+"base": "Reference",
+"class": "Item",
+"language": "GDScript",
+"path": "res://classes/item.gd"
+}, {
+"base": "Entity",
+"class": "Minion",
+"language": "GDScript",
+"path": "res://classes/minion.gd"
+}, {
+"base": "Healthbar",
+"class": "MinionHealthbar",
+"language": "GDScript",
+"path": "res://champions/other/minionhealthbar.gd"
+}, {
+"base": "Entity",
+"class": "Monster",
+"language": "GDScript",
+"path": "res://classes/monsters.gd"
+}, {
+"base": "Resource",
+"class": "Number",
+"language": "GDScript",
+"path": "res://classes/number.gd"
+}, {
+"base": "Entity",
+"class": "Objective",
+"language": "GDScript",
+"path": "res://classes/objective.gd"
+}, {
+"base": "Entity",
+"class": "Pet",
+"language": "GDScript",
+"path": "res://classes/pet.gd"
+}, {
+"base": "Effect",
+"class": "Poison",
+"language": "GDScript",
+"path": "res://effects/poison.gd"
+}, {
+"base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://classes/projectile.gd"
+}, {
+"base": "Pet",
+"class": "Radnik",
+"language": "GDScript",
+"path": "res://champions/srecko/third/radnik.gd"
+}, {
+"base": "Effect",
+"class": "Root",
+"language": "GDScript",
+"path": "res://effects/root.gd"
+}, {
+"base": "Effect",
+"class": "Shield",
+"language": "GDScript",
+"path": "res://effects/shield.gd"
+}, {
+"base": "Effect",
+"class": "Silence",
+"language": "GDScript",
+"path": "res://effects/silence.gd"
+}, {
+"base": "Objective",
+"class": "Skola",
+"language": "GDScript",
+"path": "res://world/skola/skola.gd"
+}, {
+"base": "Effect",
+"class": "Sleep",
+"language": "GDScript",
+"path": "res://effects/sleep.gd"
+}, {
+"base": "Effect",
+"class": "Slow",
+"language": "GDScript",
+"path": "res://effects/slow.gd"
+}, {
+"base": "Effect",
+"class": "Snare",
+"language": "GDScript",
+"path": "res://effects/snare.gd"
+}, {
+"base": "Reference",
+"class": "Sorting",
+"language": "GDScript",
+"path": "res://classes/sorting.gd"
+}, {
+"base": "Effect",
+"class": "Speed",
+"language": "GDScript",
+"path": "res://effects/speed.gd"
+}, {
+"base": "Sleep",
+"class": "SreckoSleep",
+"language": "GDScript",
+"path": "res://effects/sreckosleep.gd"
+}, {
+"base": "Control",
+"class": "StatCounter",
+"language": "GDScript",
+"path": "res://menu/hud/statcounter/statcounter.gd"
+}, {
+"base": "Effect",
+"class": "Strength",
+"language": "GDScript",
+"path": "res://effects/strength.gd"
+}, {
+"base": "Effect",
+"class": "Stun",
+"language": "GDScript",
+"path": "res://effects/stun.gd"
+}, {
+"base": "Effect",
+"class": "Torpor",
+"language": "GDScript",
+"path": "res://effects/torpor.gd"
+}, {
+"base": "Objective",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://classes/turret.gd"
+}, {
+"base": "Healthbar",
+"class": "TurretHealthbar",
+"language": "GDScript",
+"path": "res://champions/other/turrethealthbar.gd"
+}, {
+"base": "Effect",
+"class": "Vamp",
+"language": "GDScript",
+"path": "res://effects/vamp.gd"
+}, {
+"base": "Particles2D",
+"class": "VisualEffect",
+"language": "GDScript",
+"path": "res://vfx/visualeffect.gd"
+}, {
+"base": "Effect",
+"class": "Weakness",
+"language": "GDScript",
+"path": "res://effects/weakness.gd"
+}, {
+"base": "Camera2D",
+"class": "WorldCamera",
+"language": "GDScript",
+"path": "res://other/worldcamera.gd"
+} ]
+_global_script_class_icons={
+"Bleed": "",
+"Bush": "",
+"Champion": "",
+"ChampionHealthbar": "",
+"Charm": "",
+"Confinement": "",
+"Cripple": "",
+"Curse": "",
+"Damage": "",
+"Description": "",
+"DescriptionPanel": "",
+"Disarm": "",
+"Effect": "",
+"Entity": "",
+"Fear": "",
+"Ghosting": "",
+"HUD": "",
+"HUDHealthbar": "",
+"Haste": "",
+"Healthbar": "",
+"Item": "",
+"Minion": "",
+"MinionHealthbar": "",
+"Monster": "",
+"Number": "",
+"Objective": "",
+"Pet": "",
+"Poison": "",
+"Projectile": "",
+"Radnik": "",
+"Root": "",
+"Shield": "",
+"Silence": "",
+"Skola": "",
+"Sleep": "",
+"Slow": "",
+"Snare": "",
+"Sorting": "",
+"Speed": "",
+"SreckoSleep": "",
+"StatCounter": "",
+"Strength": "",
+"Stun": "",
+"Torpor": "",
+"Turret": "",
+"TurretHealthbar": "",
+"Vamp": "",
+"VisualEffect": "",
+"Weakness": "",
+"WorldCamera": ""
+}
+
+[application]
+
+config/name="kopija lola"
+run/main_scene="res://menu/start/startmenu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://global/game.gd"
+Lobby="*res://global/lobby.gd"
+Network="*res://global/network.gd"
+Numbers="*res://other/numbers.gd"
+VFX="*res://classes/vfx.gd"
+Dicts="*res://classes/dicts.gd"
+Optimizations="*res://global/optimizations.gd"
+
+[debug]
+
+gdscript/warnings/unassigned_variable=false
+gdscript/warnings/unassigned_variable_op_assign=false
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/standalone_expression=false
+gdscript/warnings/narrowing_conversion=false
+gdscript/warnings/incompatible_ternary=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/integer_division=false
+gdscript/warnings/standalone_ternary=false
+multirun/number_of_windows=3
+multirun/window_distance=100
+multirun/add_custom_args=true
+multirun/first_window_args="listen"
+multirun/other_window_args="listen"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+
+[editor]
+
+main_run_args="listen"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/multirun/plugin.cfg" )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+rmb={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+first_ability={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+second_ability={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ultimate_ability={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+attack_move={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+unlock_camera={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":89,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+stop_moving={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+lmb={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+fullscreen={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+esc={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+open_shop={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+alt={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777240,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Bush"
+2d_physics/layer_4="Projectiles"
+2d_physics/layer_5="team1"
+2d_physics/layer_6="team2"
+2d_physics/layer_7="Entities"
+2d_physics/layer_8="Minions"
+2d_physics/layer_9="Pentities"
+2d_physics/layer_10="Turrets"
+2d_physics/layer_11="Objectives"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/filters/msaa=2
+quality/filters/use_fxaa=true
+environment/default_environment="res://default_env.tres"

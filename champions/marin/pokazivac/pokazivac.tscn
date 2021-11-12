@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://champions/marin/pokazivac/pokazivac.png" type="Texture" id=1]
+[ext_resource path="res://champions/marin/pokazivac/pokazivac.gd" type="Script" id=2]
+
+[node name="pokazivac" type="Node2D"]
+script = ExtResource( 2 )
+base_health = 130.0
+base_attack_range = 250.0
+locked_in_place = true
+collision_radius = 20.0
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 1 )
+region_rect = Rect2( -4, -4, 135, 135 )

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://classes/projectile.gd" type="Script" id=1]
+[ext_resource path="res://world/turret/basic/turretbasic.png" type="Texture" id=2]
+
+[node name="TurretBasic" type="Area2D"]
+script = ExtResource( 1 )
+speed = 400.0
+acceleration = 10.0
+lifetime = 20.0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

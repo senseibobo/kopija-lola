@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://champions/marin/pokazivac/hex/marinhexattack.gd" type="Script" id=1]
+[ext_resource path="res://fonts/andadapro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="marinhexattack" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+speed = 100.0
+homing = false
+acceleration = 300.0
+lifetime = 1.5
+target_only = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = -20.3293
+margin_top = -6.18718
+margin_right = 19.6707
+margin_bottom = 7.81282
+custom_fonts/font = SubResource( 1 )
+text = "C"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

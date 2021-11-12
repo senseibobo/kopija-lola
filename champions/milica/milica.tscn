@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://champions/milica/milica.gd" type="Script" id=1]
+[ext_resource path="res://champions/milica/milica.png" type="Texture" id=2]
+[ext_resource path="res://champions/milica/garlicicon.png" type="Texture" id=3]
+[ext_resource path="res://champions/milica/surfaceicon.png" type="Texture" id=4]
+[ext_resource path="res://champions/milica/travellericon.png" type="Texture" id=5]
+
+[node name="Milica" type="Node2D"]
+script = ExtResource( 1 )
+base_movement_speed = 340.0
+base_health = 390.0
+base_armor = 34.0
+base_magic_resist = 23.0
+base_health_regen = 1.2
+base_attack_damage = 58.0
+base_attack_speed = 0.65
+base_attack_range = 350.0
+gameplay_radius = 50.0
+base_mana = 240.0
+base_mana_regen = 1.5
+health_per_level = 60.0
+health_regen_per_level = 0.3
+mana_per_level = 35.0
+mana_regen_per_level = 0.2
+armor_per_level = 2.0
+magic_resist_per_level = 4.0
+attack_damage_per_level = 7.0
+attack_speed_per_level = 0.068
+cooldowns = [ 0.0, 5.0, 10.0, 120.0 ]
+cooldown_decrease_per_level = [ 0.0, 0.0, 0.0, 5.0 ]
+first_ability_texture = ExtResource( 5 )
+second_ability_texture = ExtResource( 3 )
+ultimate_ability_texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

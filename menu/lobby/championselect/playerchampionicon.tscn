@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/maintheme.tres" type="Theme" id=2]
+[ext_resource path="res://menu/lobby/championselect/playerchampionicon.gd" type="Script" id=3]
+
+[node name="PlayerChampionIcon" type="Control"]
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -32.0
+margin_right = 64.0
+margin_bottom = 32.0
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 102.0
+margin_bottom = -16.0
+text = "Player Name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

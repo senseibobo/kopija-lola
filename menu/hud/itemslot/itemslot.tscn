@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/hud/itemslot/itemdescriptionpanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://menu/hud/itemslot/itemslot.gd" type="Script" id=2]
+
+[node name="ItemSlot" type="Control"]
+anchor_left = -0.011
+anchor_top = -0.02
+anchor_right = 0.011
+anchor_bottom = 0.02
+margin_left = -0.419999
+margin_top = -0.0999994
+margin_right = 0.419999
+margin_bottom = 0.0999994
+rect_min_size = Vector2( 29, 29 )
+rect_pivot_offset = Vector2( 14.5, 14.5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescriptionPanel" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_left = -4.19
+anchor_top = -7.034
+anchor_right = 5.19
+anchor_bottom = -0.276
+margin_left = 0.0100021
+margin_top = -8.01399
+margin_right = -0.00999451
+margin_bottom = 0.00400066
+rect_min_size = Vector2( 272, 204 )
+rect_pivot_offset = Vector2( 136, 204 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 29, 29 )
+stretch_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_ItemSlot_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_ItemSlot_mouse_exited"]

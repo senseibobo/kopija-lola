@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/lobby/lobby.gd" type="Script" id=1]
+[ext_resource path="res://menu/lobby/championselect/championselect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menu/lobby/championselect/playerchampionicon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/maintheme.tres" type="Theme" id=7]
+
+[node name="LobbyMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Team0" type="VBoxContainer" parent="."]
+anchor_left = 0.02
+anchor_right = 0.2
+anchor_bottom = 1.0
+custom_constants/separation = 128
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player0" parent="Team0" instance=ExtResource( 3 )]
+visible = false
+margin_top = 104.0
+margin_right = 230.0
+margin_bottom = 104.0
+
+[node name="Player1" parent="Team0" instance=ExtResource( 3 )]
+visible = false
+margin_top = 360.0
+margin_right = 230.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( 2.936, 0 )
+
+[node name="Player2" parent="Team0" instance=ExtResource( 3 )]
+visible = false
+margin_top = 424.0
+margin_right = 230.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( 2.936, 0 )
+
+[node name="Player3" parent="Team0" instance=ExtResource( 3 )]
+visible = false
+margin_top = 488.0
+margin_right = 230.0
+margin_bottom = 488.0
+rect_pivot_offset = Vector2( 2.936, 0 )
+
+[node name="Player4" parent="Team0" instance=ExtResource( 3 )]
+visible = false
+margin_top = 552.0
+margin_right = 230.0
+margin_bottom = 552.0
+rect_pivot_offset = Vector2( 2.936, 0 )
+
+[node name="Team1" type="VBoxContainer" parent="."]
+anchor_left = 0.82
+anchor_right = 0.98
+anchor_bottom = 1.0
+custom_constants/separation = 128
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player0" parent="Team1" instance=ExtResource( 3 )]
+visible = false
+margin_top = 104.0
+margin_right = 204.0
+margin_bottom = 104.0
+
+[node name="Player1" parent="Team1" instance=ExtResource( 3 )]
+visible = false
+margin_top = 232.0
+margin_right = 204.0
+margin_bottom = 232.0
+
+[node name="Player2" parent="Team1" instance=ExtResource( 3 )]
+visible = false
+margin_top = 296.0
+margin_right = 204.0
+margin_bottom = 296.0
+
+[node name="Player3" parent="Team1" instance=ExtResource( 3 )]
+visible = false
+margin_top = 296.0
+margin_right = 204.0
+margin_bottom = 296.0
+
+[node name="Player4" parent="Team1" instance=ExtResource( 3 )]
+visible = false
+margin_top = 360.0
+margin_right = 204.0
+margin_bottom = 360.0
+
+[node name="VBServer" type="Control" parent="."]
+visible = false
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="BTStartGame" type="Button" parent="VBServer"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBClient" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ChampionSelect" parent="VBClient" instance=ExtResource( 2 )]
+anchor_left = 0.2
+anchor_right = 0.8
+
+[connection signal="pressed" from="VBServer/BTStartGame" to="." method="_on_BTStartGame_pressed"]

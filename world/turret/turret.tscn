@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://classes/turret.gd" type="Script" id=1]
+[ext_resource path="res://world/turret/turret.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float scarcity : hint_range(0,1);
+float rand(vec2 co){
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
+void fragment() {
+	COLOR.rgb = vec3(1.0,0.0,0.0);
+	COLOR.a = (scarcity-rand(SCREEN_UV*sin(TIME)))*scarcity;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scarcity = 0.664
+
+[node name="Turret" type="Node2D"]
+z_index = 30
+z_as_relative = false
+script = ExtResource( 1 )
+base_health = 4000.0
+base_armor = 100.0
+base_magic_resist = 100.0
+base_attack_damage = 150.0
+base_attack_speed = 0.5
+base_attack_range = 400.0
+omnivisible = true
+targetable_by_pentities = false
+locked_in_place = true
+collision_radius = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -42 )
+
+[node name="ShootPos" type="Position2D" parent="."]
+position = Vector2( 0, -168 )
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource( 2 )
+width = 2.0

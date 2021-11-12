@@ -1,0 +1,345 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://menu/hud/hud_down_bar.png" type="Texture" id=1]
+[ext_resource path="res://menu/hud/hud.gd" type="Script" id=2]
+[ext_resource path="res://menu/hud/icons.gd" type="Script" id=3]
+[ext_resource path="res://champions/other/hudhealthbar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menu/hud/abilities/ability_description.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu/hud/minimap/minimap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://menu/shop/ItemShop/itemshop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/hud/itemslot/itemslot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://menu/maintheme.tres" type="Theme" id=9]
+[ext_resource path="res://menu/hud/gamestats/gamestats.tscn" type="PackedScene" id=10]
+[ext_resource path="res://menu/hud/icons/magic_resist.png" type="Texture" id=11]
+[ext_resource path="res://menu/hud/icons/attack_speed.png" type="Texture" id=12]
+[ext_resource path="res://menu/hud/abilities/ability_power.png" type="Texture" id=13]
+[ext_resource path="res://menu/hud/icons/armor.png" type="Texture" id=14]
+[ext_resource path="res://menu/hud/icons/movement_speed.png" type="Texture" id=15]
+[ext_resource path="res://menu/hud/statcounter/statcounter.tscn" type="PackedScene" id=16]
+[ext_resource path="res://menu/hud/abilities/abilityupgrades.tscn" type="PackedScene" id=17]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE,SCREEN_UV);
+	float average = (COLOR.r+COLOR.b+COLOR.g)/3.0;
+	COLOR.rgb = mix(COLOR.rgb,vec3(average),0.8);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="DeathRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 2 )
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minimap" parent="Control" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -220.0
+margin_top = -220.0
+margin_right = 330.0
+margin_bottom = 330.0
+rect_scale = Vector2( 0.4, 0.4 )
+
+[node name="AbilityUpgrades" parent="Control" instance=ExtResource( 17 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -99.0
+margin_top = -140.0
+margin_right = 285.0
+margin_bottom = -51.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="hud_down_bar" type="TextureRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -304.0
+margin_top = -96.0
+margin_right = 304.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" parent="Control/hud_down_bar" instance=ExtResource( 4 )]
+position = Vector2( 304, 96 )
+length = 604.0
+height = 13.0
+yposition = 17.0
+show_shield_cripple = false
+value_regen = "health_regen"
+
+[node name="Mana" parent="Control/hud_down_bar" instance=ExtResource( 4 )]
+position = Vector2( 304, 96 )
+length = 604.0
+height = 13.0
+yposition = 1.0
+health_color = Color( 0, 0.439216, 1, 1 )
+show_shield_cripple = false
+current_value = "current_mana"
+value = "mana"
+value_regen = "mana_regen"
+
+[node name="XP" parent="Control/hud_down_bar" instance=ExtResource( 4 )]
+position = Vector2( 132, 32 )
+length = 116.0
+height = 5.0
+yposition = 3.0
+health_color = Color( 0.72549, 0.72549, 0.72549, 1 )
+show_shield_cripple = false
+current_value = "experience"
+value = "experience_needed"
+
+[node name="Descriptions" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -304.025
+margin_top = -95.904
+margin_right = 303.975
+margin_bottom = 0.0960083
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="passive" parent="Control/Descriptions" instance=ExtResource( 5 )]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 61.0
+margin_bottom = 62.0
+
+[node name="first_ability" parent="Control/Descriptions" instance=ExtResource( 5 )]
+margin_left = 208.0
+margin_top = 2.0
+margin_right = 268.0
+margin_bottom = 62.0
+
+[node name="second_ability" parent="Control/Descriptions" instance=ExtResource( 5 )]
+margin_left = 272.0
+margin_top = 2.0
+margin_right = 332.0
+margin_bottom = 62.0
+
+[node name="ultimate_ability" parent="Control/Descriptions" instance=ExtResource( 5 )]
+margin_left = 336.0
+margin_top = 2.0
+margin_right = 396.0
+margin_bottom = 62.0
+
+[node name="ItemShop" parent="Control" instance=ExtResource( 7 )]
+theme = null
+
+[node name="ItemSlots" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 211.0
+margin_top = -94.0
+margin_right = 302.0
+margin_bottom = -34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot1" parent="Control/ItemSlots" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 29.0
+margin_bottom = 29.0
+
+[node name="ItemSlot2" parent="Control/ItemSlots" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.934
+margin_top = -0.0437012
+margin_right = 59.934
+margin_bottom = 28.9563
+
+[node name="ItemSlot3" parent="Control/ItemSlots" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 0.0
+margin_right = 91.0
+margin_bottom = 29.0
+
+[node name="ItemSlot4" parent="Control/ItemSlots" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 31.0
+margin_right = 29.0
+margin_bottom = 60.0
+
+[node name="ItemSlot5" parent="Control/ItemSlots" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 31.0
+margin_top = 31.0
+margin_right = 60.0
+margin_bottom = 60.0
+
+[node name="ItemSlot6" parent="Control/ItemSlots" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 31.0
+margin_right = 91.0
+margin_bottom = 60.0
+
+[node name="Stats" type="GridContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 95.0
+margin_top = -94.0
+margin_right = 209.0
+margin_bottom = -34.0
+custom_constants/vseparation = 23
+custom_constants/hseparation = 64
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackDamage" parent="Control/Stats" instance=ExtResource( 16 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="AbilityPower" parent="Control/Stats" instance=ExtResource( 16 )]
+margin_left = 64.0
+margin_right = 64.0
+margin_bottom = 0.0
+stat = "ability_power"
+icon = ExtResource( 13 )
+
+[node name="AttackSpeed" parent="Control/Stats" instance=ExtResource( 16 )]
+margin_top = 23.0
+margin_right = 0.0
+margin_bottom = 23.0
+stat = "attack_speed"
+icon = ExtResource( 12 )
+format = "%.2f/s"
+
+[node name="MovementSpeed" parent="Control/Stats" instance=ExtResource( 16 )]
+margin_left = 64.0
+margin_top = 23.0
+margin_right = 64.0
+margin_bottom = 23.0
+stat = "movement_speed"
+icon = ExtResource( 15 )
+
+[node name="Armor" parent="Control/Stats" instance=ExtResource( 16 )]
+margin_top = 46.0
+margin_right = 0.0
+margin_bottom = 46.0
+stat = "armor"
+icon = ExtResource( 14 )
+
+[node name="MagicResist" parent="Control/Stats" instance=ExtResource( 16 )]
+margin_left = 64.0
+margin_top = 46.0
+margin_right = 64.0
+margin_bottom = 46.0
+stat = "magic_resist"
+icon = ExtResource( 11 )
+
+[node name="GameStats" parent="Control" instance=ExtResource( 10 )]
+
+[node name="Icons" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+
+[node name="champion_icon" type="TextureRect" parent="Control/Icons"]
+show_behind_parent = true
+margin_left = -302.0
+margin_top = -94.0
+margin_right = -243.0
+margin_bottom = -34.0
+mouse_filter = 2
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="first_ability" type="TextureRect" parent="Control/Icons"]
+show_behind_parent = true
+margin_left = -96.0
+margin_top = -94.0
+margin_right = -36.0
+margin_bottom = -34.0
+mouse_filter = 2
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="second_ability" type="TextureRect" parent="Control/Icons"]
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -94.0
+margin_right = 28.0
+margin_bottom = -34.0
+mouse_filter = 2
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ultimate_ability" type="TextureRect" parent="Control/Icons"]
+show_behind_parent = true
+margin_left = 32.0
+margin_top = -94.0
+margin_right = 92.0
+margin_bottom = -34.0
+mouse_filter = 2
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

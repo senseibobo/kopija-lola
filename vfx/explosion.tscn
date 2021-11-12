@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://vfx/smoke.png" type="Texture" id=1]
+[ext_resource path="res://vfx/visualeffect.gd" type="Script" id=2]
+[ext_resource path="res://vfx/explosionmat.material" type="Material" id=3]
+
+[node name="Explosion" type="Particles2D"]
+emitting = false
+amount = 300
+lifetime = 0.2
+one_shot = true
+preprocess = 0.03
+explosiveness = 1.0
+local_coords = false
+process_material = ExtResource( 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
